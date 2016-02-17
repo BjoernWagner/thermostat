@@ -39,6 +39,13 @@ describe("Thermostat", function() {
       expect(thermostat.temperature).toEqual(20);
     });
 
+    it('Energy usage is green below 18', function() {
+      for(i=0; i<3; i++) {
+      thermostat.turnDown();
+      }
+      expect(thermostat.energyUsage).toEqual('green');
+    });
+
       describe('when in PSM', function(){
 
           it('can be turned off', function() {
